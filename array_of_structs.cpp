@@ -14,11 +14,11 @@ struct TemperatureRecord {
 const int MAX_DAYS = 31;
 
 // Function Prototypes
-void readTemperatures(TemperatureRecord array[], int& day); // TODO: Fix the parameters
-void printTemperatures(const TemperatureRecord array[], int day);
+void readTemperatures(TemperatureRecord array[], int& days); // TODO: Fix the parameters
+void printTemperatures(const TemperatureRecord array[], int days);
 //TemperatureRecord findMin(const ???);
 //TemperatureRecord findMax(const ???);
-double findAverage(const TemperatureRecord array[], int day);
+double findAverage(const TemperatureRecord array[], int days);
 
 int main() {
     // TODO: Step 2 - Declare an array of TemperatureRecord structs (MAX_DAYS size)
@@ -36,18 +36,18 @@ int main() {
 
 // TODO: Step 6 - Implement readTemperatures()
 // Read from "temps.txt" and store data in the array
-void readTemperatures(TemperatureRecord array[], int& day) {
-    ifstream inFile("temp.txt");
+void readTemperatures(TemperatureRecord array[], int& days) {
+    ifstream inFile("temps.txt");
     int i = 0; 
     while (i < MAX_DAYS && inFile >> array[i].day && inFile >> array[i].temperature) {
     ++i; 
     }
-    day = i;
+    days = i;
 }
 
 // TODO: Step 7 - Implement printTemperatures()
 // Print all stored temperatures in a formatted table
-void printTemperatures(const TemperatureRecord array[], int day) {
+void printTemperatures(const TemperatureRecord array[], int days) {
     for (int i = 0; i < MAX_DAYS; ++i) {
         cout << array[i].day << "   " << array[i].temperature << endl;      
     }
@@ -60,7 +60,7 @@ void printTemperatures(const TemperatureRecord array[], int day) {
 
 // TODO: Step 10 - Implement findAverage()
 // Compute and return the average temperature
-double findAverage(const TemperatureRecord array[], int day) {
+double findAverage(const TemperatureRecord array[], int days) {
     int i = 0; 
     double total = 0; 
     while (i < MAX_DAYS) {
@@ -68,7 +68,7 @@ double findAverage(const TemperatureRecord array[], int day) {
         ++i; 
     
     }
-    day = i; 
-    double average = total / day; 
+    days = i; 
+    double average = total / days; 
     return average; 
 }
